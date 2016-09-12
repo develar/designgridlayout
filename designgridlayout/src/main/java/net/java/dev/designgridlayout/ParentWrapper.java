@@ -12,69 +12,45 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package net.java.dev.designgridlayout;
+package net.java.dev.designgridlayout
 
-import java.awt.Component;
-import java.awt.Container;
+import java.awt.Component
+import java.awt.Container
 
-import javax.swing.JComponent;
+import javax.swing.JComponent
 
-final class ParentWrapper<T extends Container>
-{	
-	ParentWrapper(T parent)
-	{
-		_parent = parent;
-	}
-	
-	void checkParent(Container parent)
-	{
-		if (parent != _parent)
-		{
-			throw new IllegalArgumentException(
-				"Must use layout instance with original parent container");
-		}
-	}
-	
-	void add(Component child)
-	{
-		try
-		{
-			_addChild = true;
-			_parent.add(child);
-		}
-		finally
-		{
-			_addChild = false;
-		}
-	}
-	
-	void checkAddedComponent(JComponent component)
-	{
-		Container parent = component;
-		while (parent != null)
-		{
-			if (parent == _parent)
-			{
-				throw new IllegalArgumentException("Do not add the same component twice");
-			}
-			parent = parent.getParent();
-		}
-	}
+internal class ParentWrapper<out T : Container>(val parent: T) {
+  private var addChild = false
 
-	void checkAdd()
-	{
-		if (!_addChild)
-		{
-			//TODO better message
-			throw new IllegalArgumentException("Do not use this method");
-		}
-	}
-	
-	T parent()
-	{
-		return _parent;
-	}
-	
-	final private T _parent;
-	private boolean _addChild = false;
+  fun checkParent(parent: Container) {
+    if (parent !== parent) {
+      throw IllegalArgumentException("Must use layout instance with original parent container")
+    }
+  }
+
+  fun add(child: Component) {
+    try {
+      addChild = true
+      parent.add(child)
+    }
+    finally {
+      addChild = false
+    }
+  }
+
+  fun checkAddedComponent(component: JComponent) {
+    var parent: Container? = component
+    while (parent != null) {
+      if (parent === this.parent) {
+        throw IllegalArgumentException("Do not add the same component twice")
+      }
+      parent = parent.parent
+    }
+  }
+
+  fun checkAdd() {
+    if (!addChild) {
+      throw IllegalArgumentException("Do not use this method")
+    }
+  }
 }
