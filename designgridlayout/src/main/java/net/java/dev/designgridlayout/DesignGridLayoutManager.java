@@ -14,17 +14,13 @@
 
 package net.java.dev.designgridlayout;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.LayoutManager2;
+import javax.swing.*;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-
-import javax.swing.JComponent;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 import static net.java.dev.designgridlayout.RowIterator.each;
 
@@ -47,7 +43,7 @@ public class DesignGridLayoutManager implements LayoutManager2
 	{
 		_designGridLayout = designGridLayout;
 		_wrapper = wrapper;
-		_parent = _wrapper.parent();
+		_parent = _wrapper.getParent();
 		_rows = rows;
 		_orientation = orientation;
 	}

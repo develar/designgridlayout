@@ -203,7 +203,7 @@ final class GridRow extends AbstractRow implements ISpannableGridRow
 				JComponent left = leftGrid.get(leftGrid.size() - 1).component();
 				JComponent right = rightGrid.get(0).component();
 				int gap = helper.getHorizontalGap(
-					left, right, ComponentPlacement.UNRELATED, parent().parent());
+					left, right, ComponentPlacement.UNRELATED, parent().getParent());
 				gridgap = Math.max(gridgap, gap);
 			}
 		}

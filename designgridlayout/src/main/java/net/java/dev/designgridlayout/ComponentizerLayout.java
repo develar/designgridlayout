@@ -14,18 +14,14 @@
 
 package net.java.dev.designgridlayout;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.LayoutManager2;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.JComponent;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
 import net.java.dev.designgridlayout.Componentizer.Builder;
 import net.java.dev.designgridlayout.Componentizer.WidthPolicy;
+
+import javax.swing.*;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 final class ComponentizerLayout implements LayoutManager2, Builder
 {
@@ -122,7 +118,7 @@ final class ComponentizerLayout implements LayoutManager2, Builder
 	
 	@Override public JComponent component()
 	{
-		return _wrapper.parent();
+		return _wrapper.getParent();
 	}
 
 	int getBaseline()
@@ -148,7 +144,7 @@ final class ComponentizerLayout implements LayoutManager2, Builder
 			// Prepare layout
 			LayoutHelper helper = new LayoutHelper(
 				_heightTester, parentWidth, _orientation.isRightToLeft());
-			helper.setRowAvailableHeight(_wrapper.parent().getHeight());
+			helper.setRowAvailableHeight(_wrapper.getParent().getHeight());
 			helper.setY(0);
 
 			if (availableWidth < prefWidth)
@@ -318,7 +314,7 @@ final class ComponentizerLayout implements LayoutManager2, Builder
 				JComponent left = _children.get(nth).component();
 				JComponent right = _children.get(nth + 1).component();
 				int gap = helper.getHorizontalGap(
-					left, right, ComponentPlacement.RELATED, _wrapper.parent());
+					left, right, ComponentPlacement.RELATED, _wrapper.getParent());
 				_gaps[nth] = gap;
 				_gap += gap;
 			}

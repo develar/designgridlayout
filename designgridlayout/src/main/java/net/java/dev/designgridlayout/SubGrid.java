@@ -14,13 +14,10 @@
 
 package net.java.dev.designgridlayout;
 
-import java.awt.Container;
+import javax.swing.*;
+import java.awt.*;
 import java.util.Iterator;
 import java.util.List;
-
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 final class SubGrid implements ISubGrid
 {
@@ -184,7 +181,7 @@ final class SubGrid implements ISubGrid
 
 	public int hgap()
 	{
-		return ComponentHelper.hgap(_label, _items, _parent.parent());
+		return ComponentHelper.hgap(_label, _items, _parent.getParent());
 	}
 
 	public int layoutRow(LayoutHelper helper, int left, int height, int baseline, 

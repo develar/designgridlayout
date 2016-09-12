@@ -14,10 +14,9 @@
 
 package net.java.dev.designgridlayout;
 
-import java.awt.Container;
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
-
-import javax.swing.JComponent;
 
 abstract class AbstractRow implements IHideable
 {
@@ -209,12 +208,12 @@ abstract class AbstractRow implements IHideable
 
 	int hgap()
 	{
-		return ComponentHelper.hgap(allItems(), _wrapper.parent());
+		return ComponentHelper.hgap(allItems(), _wrapper.getParent());
 	}
 
 	int unrelhgap()
 	{
-		return ComponentHelper.unrelhgap(allItems(), _wrapper.parent());
+		return ComponentHelper.unrelhgap(allItems(), _wrapper.getParent());
 	}
 
 	int gridgap()
