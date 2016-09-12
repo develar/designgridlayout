@@ -14,11 +14,9 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
-
 import net.java.dev.designgridlayout.Componentizer.Builder;
+
+import javax.swing.*;
 
 public abstract class AbstractComponentizerExample extends AbstractExample
 {
@@ -34,7 +32,7 @@ public abstract class AbstractComponentizerExample extends AbstractExample
 		JPanel contentPane = new JPanel();
 		contentPane.setName("TOP");
 		_frame.setContentPane(contentPane);
-		ComponentizerLayout layout = new ComponentizerLayout(contentPane);
+		ComponentizerLayout layout = new ComponentizerLayout(contentPane, new ComponentGapsHelper());
 		layout.withSmartVerticalResize();
 		build(layout);
 

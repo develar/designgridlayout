@@ -65,7 +65,7 @@ final class SubGrid implements ISubGrid
 
 	void indent(int n)
 	{
-		_indent = ComponentGapsHelper.instance().getHorizontalIndent() * n;
+		_indent = _parent.getComponentGapHelper().getHorizontalIndent() * n;
 	}
 	
 	void add(JComponent child, int span)
@@ -181,7 +181,7 @@ final class SubGrid implements ISubGrid
 
 	public int hgap()
 	{
-		return ComponentHelper.hgap(_label, _items, _parent.getParent());
+		return ComponentHelper.hgap(_parent.getComponentGapHelper(), _label, _items, _parent.getParent());
 	}
 
 	public int layoutRow(LayoutHelper helper, int left, int height, int baseline, 

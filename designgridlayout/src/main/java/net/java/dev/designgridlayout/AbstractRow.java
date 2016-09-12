@@ -208,12 +208,12 @@ abstract class AbstractRow implements IHideable
 
 	int hgap()
 	{
-		return ComponentHelper.hgap(allItems(), _wrapper.getParent());
+		return ComponentHelper.hgap(_wrapper.getComponentGapHelper(), allItems(), _wrapper.getParent());
 	}
 
 	int unrelhgap()
 	{
-		return ComponentHelper.unrelhgap(allItems(), _wrapper.getParent());
+		return ComponentHelper.unrelhgap(_wrapper.getComponentGapHelper(), allItems(), _wrapper.getParent());
 	}
 
 	int gridgap()
@@ -269,7 +269,7 @@ abstract class AbstractRow implements IHideable
 		int unrelhgap, int rowWidth, int gridsWidth, List<Integer> labelsWidth);
 	//CSON: ParameterNumber
 
-	private ParentWrapper<Container> _wrapper;
+	protected ParentWrapper<Container> _wrapper;
 	private HeightGrowPolicy _heightTester;
 	private OrientationPolicy _orientation;
 	private boolean _unrelatedGap = false;

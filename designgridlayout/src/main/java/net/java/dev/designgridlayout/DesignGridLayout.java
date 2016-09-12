@@ -14,12 +14,10 @@
 
 package net.java.dev.designgridlayout;
 
-import java.awt.Container;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JLabel;
-import javax.swing.RootPaneContainer;
 
 /**
  * Swing LayoutManager that implements "Canonical Grids" as used by graphic 
@@ -67,6 +65,11 @@ public class DesignGridLayout
 	 */
 	public DesignGridLayout(Container parent)
 	{
+		this(parent, LayoutStyle.getInstance());
+	}
+
+	public DesignGridLayout(Container parent, LayoutStyle layoutStyle)
+	{
 		if (parent == null)
 		{
 			throw new NullPointerException("parent cannot be null");
@@ -76,7 +79,7 @@ public class DesignGridLayout
 		{
 			target = ((RootPaneContainer) parent).getContentPane();
 		}
-		_wrapper = new ParentWrapper<Container>(target);
+		_wrapper = new ParentWrapper<Container>(target, new ComponentGapsHelper(layoutStyle));
 		_orientation = new OrientationPolicy(target);
 		_layout = new DesignGridLayoutManager(this, _wrapper, _rows, _orientation);
 		_layout.setHeightTester(_heightTester);

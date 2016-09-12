@@ -317,7 +317,7 @@ public class DesignGridLayoutManager implements LayoutManager2
 	// it's better not to try to improve vgaps
 	private void computeVerticalGutters()
 	{
-		ComponentGapsHelper helper = ComponentGapsHelper.instance();
+		ComponentGapsHelper helper = _wrapper.getComponentGapHelper();
 		int nthRow = 0;
 		for (AbstractRow row: _rows)
 		{
@@ -683,7 +683,7 @@ public class DesignGridLayoutManager implements LayoutManager2
 		AbstractRow topRow = firstNonEmptyRow();
 		if (topRow != null)
 		{
-			ComponentGapsHelper helper = ComponentGapsHelper.instance();
+			ComponentGapsHelper helper = _wrapper.getComponentGapHelper();
 			for (IItem item: topRow.allItems())
 			{
 				int gap = helper.getNorthContainerGap(item.component(), _parent);
@@ -701,7 +701,7 @@ public class DesignGridLayoutManager implements LayoutManager2
 		AbstractRow bottomRow = lastNonEmptyRow();
 		if (bottomRow != null)
 		{
-			ComponentGapsHelper helper = ComponentGapsHelper.instance();
+			ComponentGapsHelper helper = _wrapper.getComponentGapHelper();
 			for (IItem item: bottomRow.allItems())
 			{
 				int height = item.preferredHeight();
@@ -760,7 +760,7 @@ public class DesignGridLayoutManager implements LayoutManager2
 	{
 		_left = 0;
 		_right = 0;
-		ComponentGapsHelper helper = ComponentGapsHelper.instance();
+		ComponentGapsHelper helper = _wrapper.getComponentGapHelper();
 		for (AbstractRow row: _rows)
 		{
 			JComponent left = row.leftComponent();

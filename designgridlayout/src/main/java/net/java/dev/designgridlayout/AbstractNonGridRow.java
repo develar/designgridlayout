@@ -40,7 +40,7 @@ abstract class AbstractNonGridRow extends AbstractRow implements INonGridRow
 	{
 		if (n >= 0)
 		{
-			_indent = ComponentGapsHelper.instance().getHorizontalIndent() * n;
+			_indent = _wrapper.getComponentGapHelper().getHorizontalIndent() * n;
 		}
 		return this;
 	}

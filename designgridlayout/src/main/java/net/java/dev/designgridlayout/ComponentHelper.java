@@ -14,11 +14,10 @@
 
 package net.java.dev.designgridlayout;
 
-import java.awt.Container;
-import java.util.List;
-
-import javax.swing.JComponent;
+import javax.swing.*;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.*;
+import java.util.List;
 
 final class ComponentHelper
 {
@@ -46,21 +45,18 @@ final class ComponentHelper
 		return sum;
 	}
 	
-	static int unrelhgap(List<? extends IItem> items, Container parent)
+	static int unrelhgap(ComponentGapsHelper helper, List<? extends IItem> items, Container parent)
 	{
-		return hgap(
-			ComponentGapsHelper.instance(), items, parent, ComponentPlacement.UNRELATED);
+		return hgap(helper, items, parent, ComponentPlacement.UNRELATED);
 	}
 	
-	static int hgap(List<? extends IItem> items, Container parent)
+	static int hgap(ComponentGapsHelper helper, List<? extends IItem> items, Container parent)
 	{
-		return hgap(
-			ComponentGapsHelper.instance(), items, parent, ComponentPlacement.RELATED);
+		return hgap(helper, items, parent, ComponentPlacement.RELATED);
 	}
 	
-	static int hgap(JComponent first, List<? extends IItem> items, Container parent)
+	static int hgap(ComponentGapsHelper helper, JComponent first, List<? extends IItem> items, Container parent)
 	{
-		ComponentGapsHelper helper = ComponentGapsHelper.instance();
 		int hgap = 0;
 		if (first != null && !items.isEmpty())
 		{

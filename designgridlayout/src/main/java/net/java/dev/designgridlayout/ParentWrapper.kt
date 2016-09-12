@@ -5,7 +5,7 @@ import java.awt.Container
 
 import javax.swing.JComponent
 
-internal class ParentWrapper<out T : Container>(val parent: T) {
+internal class ParentWrapper<out T : Container>(val parent: T, val componentGapHelper: ComponentGapsHelper) {
   private var addChild = false
 
   fun checkParent(parent: Container) {

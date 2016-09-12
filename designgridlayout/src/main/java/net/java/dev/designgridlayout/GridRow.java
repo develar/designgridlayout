@@ -192,7 +192,7 @@ final class GridRow extends AbstractRow implements ISpannableGridRow
 	
 	@Override int gridgap()
 	{
-		ComponentGapsHelper helper = ComponentGapsHelper.instance();
+		ComponentGapsHelper helper = _wrapper.getComponentGapHelper();
 		int gridgap = 0;
 		for (int i = 0; i < _grids.size() - 1; i++)
 		{

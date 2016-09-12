@@ -25,9 +25,9 @@ import java.util.List;
 
 final class ComponentizerLayout implements LayoutManager2, Builder
 {
-	ComponentizerLayout(JComponent parent)
+	ComponentizerLayout(JComponent parent, ComponentGapsHelper componentGapsHelper)
 	{
-		_wrapper = new ParentWrapper<JComponent>(parent);
+		_wrapper = new ParentWrapper<JComponent>(parent, componentGapsHelper);
 		_orientation = new OrientationPolicy(parent);
 		parent.setLayout(this);
 	}
@@ -54,11 +54,9 @@ final class ComponentizerLayout implements LayoutManager2, Builder
 		switch (width)
 		{
 			case MIN_TO_PREF:
-			_numComponentsWiderThanMin += children.length;
 			break;
 			
 			case MIN_AND_MORE:
-			_numComponentsWiderThanMin += children.length;
 			_numComponentsWiderThanPref += children.length;
 			break;
 			
@@ -306,7 +304,7 @@ final class ComponentizerLayout implements LayoutManager2, Builder
 			_prefWidth = ComponentHelper.sumValues(_children, PrefWidthExtractor.INSTANCE);
 			_height = ComponentHelper.maxValues(_children, PrefHeightExtractor.INSTANCE);
 
-			ComponentGapsHelper helper = ComponentGapsHelper.instance();
+			ComponentGapsHelper helper = _wrapper.getComponentGapHelper();
 			_gaps = new int[_children.size()];
 			_gap = 0;
 			for (int nth = 0; nth < _children.size() - 1; nth++)
@@ -355,5 +353,4 @@ final class ComponentizerLayout implements LayoutManager2, Builder
 	private int[] _gaps = null;
 	private int _gap = 0;
 	private int _numComponentsWiderThanPref = 0;
-	private int _numComponentsWiderThanMin = 0;
 }

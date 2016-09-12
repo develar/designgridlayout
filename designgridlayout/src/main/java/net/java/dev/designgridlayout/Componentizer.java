@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * Utility to create a new {@link JComponent} out of several {@link JComponent}s,
@@ -61,7 +61,7 @@ final public class Componentizer
 	 */
 	static public Builder create()
 	{
-		return new ComponentizerLayout(new MultiComponent());
+		return new ComponentizerLayout(new MultiComponent(), new ComponentGapsHelper());
 	}
 
 	/**
@@ -70,7 +70,7 @@ final public class Componentizer
 	 * 
 	 * @author Jean-Francois Poilpret
 	 */
-	static public interface Builder
+	public interface Builder
 	{
 		/**
 		 * Enable "smart vertical resize" for components that can grow in height. Smart
@@ -79,7 +79,7 @@ final public class Componentizer
 		 * @return {@code this} instance of {@code Componentizer.Builder}, allowing for 
 		 * chained calls to other methods (also known as "fluent API")
 		 */
-		public Builder withSmartVerticalResize();
+		Builder withSmartVerticalResize();
 		
 		/**
 		 * Disable "smart vertical resize" for components that can grow in height. Smart
@@ -88,7 +88,7 @@ final public class Componentizer
 		 * @return {@code this} instance of {@code Componentizer.Builder}, allowing for 
 		 * chained calls to other methods (also known as "fluent API")
 		 */
-		public Builder withoutSmartVerticalResize();
+		Builder withoutSmartVerticalResize();
 
 		/**
 		 * Add {@code children} to the component that will be created by this 
@@ -100,7 +100,7 @@ final public class Componentizer
 		 * @return {@code this} instance of {@code Componentizer.Builder}, allowing for 
 		 * chained calls to other methods (also known as "fluent API")
 		 */
-		public Builder add(WidthPolicy width, JComponent... children);
+		Builder add(WidthPolicy width, JComponent... children);
 
 		/**
 		 * Add {@code children} to the component that will be created by this 
@@ -113,7 +113,7 @@ final public class Componentizer
 		 * @return {@code this} instance of {@code Componentizer.Builder}, allowing for 
 		 * chained calls to other methods (also known as "fluent API")
 		 */
-		public Builder fixedPref(JComponent... children);
+		Builder fixedPref(JComponent... children);
 
 		/**
 		 * Add {@code children} to the component that will be created by this 
@@ -126,7 +126,7 @@ final public class Componentizer
 		 * @return {@code this} instance of {@code Componentizer.Builder}, allowing for 
 		 * chained calls to other methods (also known as "fluent API")
 		 */
-		public Builder prefAndMore(JComponent... children);
+		Builder prefAndMore(JComponent... children);
 
 		/**
 		 * Add {@code children} to the component that will be created by this 
@@ -139,7 +139,7 @@ final public class Componentizer
 		 * @return {@code this} instance of {@code Componentizer.Builder}, allowing for 
 		 * chained calls to other methods (also known as "fluent API")
 		 */
-		public Builder minToPref(JComponent... children);
+		Builder minToPref(JComponent... children);
 
 		/**
 		 * Add {@code children} to the component that will be created by this 
@@ -152,7 +152,7 @@ final public class Componentizer
 		 * @return {@code this} instance of {@code Componentizer.Builder}, allowing for 
 		 * chained calls to other methods (also known as "fluent API")
 		 */
-		public Builder minAndMore(JComponent... children);
+		Builder minAndMore(JComponent... children);
 		
 		/**
 		 * Get the {@link JComponent} resulting from the aggregation of all components
@@ -160,7 +160,7 @@ final public class Componentizer
 		 * 
 		 * @return the aggregated {@link JComponent}
 		 */
-		public JComponent component();
+		JComponent component();
 	}
 	
 	/**
@@ -169,7 +169,7 @@ final public class Componentizer
 	 * 
 	 * @author Jean-Francois Poilpret
 	 */
-	static public enum WidthPolicy
+	public enum WidthPolicy
 	{
 		/**
 		 * A component using this policy will always have a fixed width, equal to its
