@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * Any row created by {@link DesignGridLayout} implements this minimal
@@ -40,25 +40,9 @@ public interface IRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IRow add(JComponent... children);
+        IRow add(JComponent... children);
 
-	/**
-	 * Adds components to this row; all components are "assembled" as one
-	 * global component and use only one "column" in the row.
-	 * <p/>
-	 * Note that the width of each individual component will never grow bigger
-	 * than its preferred width.
-	 * 
-	 * @param children components to assemble and add to this row
-	 * @return {@code this} row (to allow chaining other methods for the current 
-	 * row)
-	 * 
-	 * @deprecated Use {@link #add} with {@link Componentizer} instead.
-	 */
-	@Deprecated
-	public abstract IRow addMulti(JComponent... children);
-	
-	/**
+        /**
 	 * Add one indentation space (size is platform-dependent) before the left-most
 	 * component of the row.
 	 * <p/>
@@ -69,7 +53,7 @@ public interface IRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IRow indent();
+        IRow indent();
 	
 	/**
 	 * Add some indentation space (size is platform-dependent) before the left-most
@@ -88,5 +72,5 @@ public interface IRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IRow indent(int n);
+        IRow indent(int n);
 }

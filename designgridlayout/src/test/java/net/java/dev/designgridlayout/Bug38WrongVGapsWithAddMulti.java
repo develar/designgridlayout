@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JTextField;
+import javax.swing.*;
 
 // Issue 38: too small vgap between multicomponents 
 // NB: does not happen on Metal/WinXP. Happens on Aqua (Macintosh).
@@ -30,8 +30,8 @@ public class Bug38WrongVGapsWithAddMulti extends AbstractDesignGridExample
 	{
 		layout.row().grid(label("Label 1")).add(field("F1"));
 		layout.row().grid(label("Label 2")).add(field("F2"));
-		layout.row().grid(label("Label 3")).addMulti(field("F3"));
-		layout.row().grid(label("Label 4")).addMulti(field("F4"));
+		layout.row().grid(label("Label 3")).add(field("F3"));
+		layout.row().grid(label("Label 4")).add(field("F4"));
 	}
 
 	@Override protected JTextField field(String text)

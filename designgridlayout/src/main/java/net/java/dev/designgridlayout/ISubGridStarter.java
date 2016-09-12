@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JLabel;
+import javax.swing.*;
 
 /**
  * This interface is used to start a new canonical grid row (when called from
@@ -50,7 +50,7 @@ public interface ISubGridStarter
 	 * row)
 	 * @see ISpannableGridRow#spanRow()
 	 */
-	public abstract ISpannableGridRow grid(JLabel label);
+        ISpannableGridRow grid(JLabel label);
 	
 	/**
 	 * Starts a new sub-grid in the row, starting with a label.
@@ -68,7 +68,7 @@ public interface ISubGridStarter
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IGridRow grid(JLabel label, int gridspan);
+        IGridRow grid(JLabel label, int gridspan);
 
 	/**
 	 * Starts a new sub-grid in the row, starting with an empty label.
@@ -87,7 +87,7 @@ public interface ISubGridStarter
 	 * row)
 	 * @see ISpannableGridRow#spanRow()
 	 */
-	public abstract ISpannableGridRow grid();
+        ISpannableGridRow grid();
 
 	/**
 	 * Starts a new sub-grid in the row, starting with an empty label.
@@ -104,5 +104,5 @@ public interface ISubGridStarter
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IGridRow grid(int gridspan);
+        IGridRow grid(int gridspan);
 }

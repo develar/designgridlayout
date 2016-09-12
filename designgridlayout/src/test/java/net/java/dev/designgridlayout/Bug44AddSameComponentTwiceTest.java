@@ -14,10 +14,9 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import org.testng.annotations.Test;
+
+import javax.swing.*;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.testng.Assert.fail;
@@ -123,8 +122,8 @@ public class Bug44AddSameComponentTwiceTest
 			JPanel parent = new JPanel();
 			DesignGridLayout layout = new DesignGridLayout(parent);
 			JLabel label = new JLabel("Dummy");
-			layout.row().grid().addMulti(label);
-			layout.row().grid().addMulti(label);
+			layout.row().grid().add(label);
+			layout.row().grid().add(label);
 			fail(FAIL_ADD_2_COMPONENTS_TO_ONE_LAYOUT);
 		}
 		catch (IllegalArgumentException e)
@@ -141,7 +140,7 @@ public class Bug44AddSameComponentTwiceTest
 			JPanel parent = new JPanel();
 			DesignGridLayout layout = new DesignGridLayout(parent);
 			JLabel label = new JLabel("Dummy");
-			layout.row().grid().addMulti(label, label);
+			layout.row().grid().add(label, label);
 			fail(FAIL_ADD_2_COMPONENTS_TO_ONE_LAYOUT);
 		}
 		catch (IllegalArgumentException e)

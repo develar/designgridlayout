@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import java.awt.Component;
+import java.awt.*;
 
 interface ClassBasedHeightGrowPolicy extends HeightGrowPolicy
 {
@@ -22,5 +22,5 @@ interface ClassBasedHeightGrowPolicy extends HeightGrowPolicy
 	 * Returns the class of the {@link Component} supported by this policy.
 	 * @return the class of Component that this policy supports
 	 */
-	public Class<? extends Component> getComponentClass();
+        Class<? extends Component> getComponentClass();
 }

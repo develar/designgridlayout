@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * Rows created by {@code DesignGridLayout.row().grid()} and 
@@ -67,53 +67,47 @@ public interface ISpannableGridRow extends IGridRow
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract ISpannableGridRow spanRow();
+	ISpannableGridRow spanRow();
 
 	/*
 	 * (non-Javadoc)
 	 * @see net.java.dev.designgridlayout.IGridRow#add(javax.swing.JComponent[])
 	 */
-	@Override public abstract ISpannableGridRow add(JComponent... children);
+	@Override
+	ISpannableGridRow add(JComponent... children);
 	
 	/*
 	 * (non-Javadoc)
 	 * @see net.java.dev.designgridlayout.IGridRow#add(javax.swing.JComponent, int)
 	 */
-	@Override public abstract ISpannableGridRow add(JComponent child, int span);
+	@Override
+	ISpannableGridRow add(JComponent child, int span);
 	
 	/*
 	 * (non-Javadoc)
 	 * @see net.java.dev.designgridlayout.IGridRow#empty()
 	 */
-	@Override public abstract ISpannableGridRow empty();
+	@Override
+	ISpannableGridRow empty();
 	
 	/*
 	 * (non-Javadoc)
 	 * @see net.java.dev.designgridlayout.IGridRow#empty(int)
 	 */
-	@Override public abstract ISpannableGridRow empty(int span);
-	
-	/*
-	 * (non-Javadoc)
-	 * @see net.java.dev.designgridlayout.IGridRow#addMulti(javax.swing.JComponent[])
-	 */
-	@Override public abstract ISpannableGridRow addMulti(JComponent... children);
-	
-	/*
-	 * (non-Javadoc)
-	 * @see net.java.dev.designgridlayout.IGridRow#addMulti(int, javax.swing.JComponent[])
-	 */
-	@Override public abstract ISpannableGridRow addMulti(int span, JComponent... children);
+	@Override
+	ISpannableGridRow empty(int span);
 
-	/*
-	 * (non-Javadoc)
-	 * @see net.java.dev.designgridlayout.IGridRow#indent()
-	 */
-	@Override public abstract ISpannableGridRow indent();
+  /*
+   * (non-Javadoc)
+   * @see net.java.dev.designgridlayout.IGridRow#indent()
+   */
+	@Override
+	ISpannableGridRow indent();
 	
 	/*
 	 * (non-Javadoc)
 	 * @see net.java.dev.designgridlayout.IGridRow#indent(int)
 	 */
-	@Override public abstract ISpannableGridRow indent(int n);
+	@Override
+	ISpannableGridRow indent(int n);
 }

@@ -36,7 +36,7 @@ public interface IHideable
 	 * is hidden, resize behavior is not well handled unless all rows containing the same
 	 * spanning component are also hidden altogether (which is the common use case).
 	 */
-	public abstract void hide();
+        void hide();
 	
 	/**
 	 * Restores the whole row to a visible state, ie all its components' visibilities
@@ -47,7 +47,7 @@ public interface IHideable
 	 * Also, if {@link #hide()} has been called several times, then {@code show()} will
 	 * have to be called the same number of times for the row to become visible again.
 	 */
-	public abstract void show();
+        void show();
 
 	/**
 	 * Forces the whole row to a visible state, ie all its components' visibilities
@@ -59,5 +59,5 @@ public interface IHideable
 	 * several times, then one single call to {@code forceShow()} will make the row
 	 * visible again.
 	 */
-	public abstract void forceShow();
+        void forceShow();
 }

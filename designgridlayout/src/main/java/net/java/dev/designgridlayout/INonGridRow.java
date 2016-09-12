@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * Any row created by one of {@code DesignGridLayout.row().left()}, 
@@ -35,25 +35,22 @@ public interface INonGridRow extends IRow
 	 * (non-Javadoc)
 	 * @see IRow#add(javax.swing.JComponent[])
 	 */
-	@Override public abstract INonGridRow add(JComponent... children);
-	
-	/*
-	 * (non-Javadoc)
-	 * @see IRow#addMulti(javax.swing.JComponent[])
-	 */
-	@Override public abstract INonGridRow addMulti(JComponent... children);
+	@Override
+	INonGridRow add(JComponent... children);
 
 	/*
 	 * (non-Javadoc)
 	 * @see net.java.dev.designgridlayout.IRow#indent()
 	 */
-	@Override public abstract INonGridRow indent();
+	@Override
+	INonGridRow indent();
 
 	/*
 	 * (non-Javadoc)
 	 * @see net.java.dev.designgridlayout.IRow#indent(int)
 	 */
-	@Override public abstract INonGridRow indent(int n);
+	@Override
+	INonGridRow indent(int n);
 
 	/**
 	 * Sets the "extreme" component(s) of this row to fill the whole space
@@ -69,7 +66,7 @@ public interface INonGridRow extends IRow
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract INonGridRow fill();
+	INonGridRow fill();
 	
 	/**
 	 * Makes this row independent of other non-grid rows in terms of component 
@@ -92,5 +89,5 @@ public interface INonGridRow extends IRow
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract INonGridRow withOwnRowWidth();
+	INonGridRow withOwnRowWidth();
 }

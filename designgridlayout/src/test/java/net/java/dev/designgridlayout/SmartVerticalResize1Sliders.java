@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JSlider;
+import javax.swing.*;
 
 // Shows issue 5 with lack of variable height rows
 public class SmartVerticalResize1Sliders extends AbstractDesignGridExample
@@ -28,7 +28,7 @@ public class SmartVerticalResize1Sliders extends AbstractDesignGridExample
 	@Override public void build(DesignGridLayout layout)
 	{
 		layout.row().grid(label("Label1")).add(field("Field1")).empty();
-		layout.row().grid(label("Power")).addMulti(slider(), slider(), slider());
+		layout.row().grid(label("Power")).add(slider(), slider(), slider());
 		layout.row().center().add(button(), button(), button());
 	}
 	

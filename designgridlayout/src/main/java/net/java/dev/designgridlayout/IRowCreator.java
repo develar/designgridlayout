@@ -33,7 +33,7 @@ public interface IRowCreator extends ISubGridStarter
 	 * @return {@code this} instance of IRowCreator, allowing for chained 
 	 * calls to other methods (also known as "fluent API")
 	 */
-	public abstract IRowCreator group(RowGroup group);
+        IRowCreator group(RowGroup group);
 
 	/**
 	 * Creates a center-aligned row. Center-aligned rows are NOT canonical grids 
@@ -47,7 +47,7 @@ public interface IRowCreator extends ISubGridStarter
 	 * @return a new center-aligned row which API is used in a chained-way 
 	 * (fluent API) to add components to the row.
 	 */
-	public abstract INonGridRow center();
+        INonGridRow center();
 
 	/**
 	 * Creates a left-aligned row. Left-aligned rows are NOT canonical grids but
@@ -61,7 +61,7 @@ public interface IRowCreator extends ISubGridStarter
 	 * @return a new left-aligned row which API is used in a chained-way (fluent 
 	 * API) to add components to the row.
 	 */
-	public abstract INonGridRow left();
+        INonGridRow left();
 
 	/**
 	 * Creates a right-aligned row. Right-aligned rows are NOT canonical grids 
@@ -75,7 +75,7 @@ public interface IRowCreator extends ISubGridStarter
 	 * @return a new right-aligned row which API is used in a chained-way (fluent 
 	 * API) to add components to the row.
 	 */
-	public abstract INonGridRow right();
+        INonGridRow right();
 
 	/**
 	 * Creates a "command bar" row. This kind of row is NOT a canonical grid and is
@@ -97,5 +97,5 @@ public interface IRowCreator extends ISubGridStarter
 	 * @return a new command-bar row which API is used in a chained-way (fluent 
 	 * API) to add components to the row.
 	 */
-	public abstract IBarRow bar();
+        IBarRow bar();
 }

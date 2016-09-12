@@ -14,10 +14,9 @@
 
 package net.java.dev.designgridlayout;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JComponent;
 
 abstract class AbstractNonGridRow extends AbstractRow implements INonGridRow
 {
@@ -32,16 +31,7 @@ abstract class AbstractNonGridRow extends AbstractRow implements INonGridRow
 		return this;
 	}
 
-	@Override public INonGridRow addMulti(JComponent... children)
-	{
-		for (JComponent component: children)
-		{
-			checkAddedComponent(component);
-		}
-		return add(Componentizer.create().fixedPref(children).component());
-	}
-
-	@Override public INonGridRow indent()
+  @Override public INonGridRow indent()
 	{
 		return indent(1);
 	}

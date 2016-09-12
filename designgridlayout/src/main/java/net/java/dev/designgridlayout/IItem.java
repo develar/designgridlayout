@@ -14,13 +14,13 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 interface IItem
 {
-	public JComponent component();
-	public int preferredHeight();
-	public int minimumWidth();
-	public int preferredWidth();
-	public int baseline();
+	JComponent component();
+	int preferredHeight();
+	int minimumWidth();
+	int preferredWidth();
+	int baseline();
 }

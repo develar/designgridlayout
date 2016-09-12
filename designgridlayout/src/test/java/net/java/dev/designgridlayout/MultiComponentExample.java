@@ -24,7 +24,7 @@ public class MultiComponentExample extends AbstractDesignGridExample
 
 	@Override public void build(DesignGridLayout layout)
 	{
-		layout.row().grid().addMulti(field("1234567890"), field("1234567890")).add(button());
-		layout.row().center().addMulti(field("1234567890"), field("1234567890")).add(button());
+		layout.row().grid().add(field("1234567890"), field("1234567890")).add(button());
+		layout.row().center().add(field("1234567890"), field("1234567890")).add(button());
 	}
 }

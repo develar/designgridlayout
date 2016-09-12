@@ -14,13 +14,11 @@
 
 package net.java.dev.designgridlayout;
 
+import javax.swing.*;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 final class GridRow extends AbstractRow implements ISpannableGridRow
 {
@@ -51,21 +49,7 @@ final class GridRow extends AbstractRow implements ISpannableGridRow
 		return this;
 	}
 
-	@Override public ISpannableGridRow addMulti(int span, JComponent... children)
-	{
-		for (JComponent component: children)
-		{
-			checkAddedComponent(component);
-		}
-		return add(Componentizer.create().fixedPref(children).component(), span);
-	}
-
-	@Override public ISpannableGridRow addMulti(JComponent... children)
-	{
-		return addMulti(1, children);
-	}
-
-	@Override public ISpannableGridRow indent()
+  @Override public ISpannableGridRow indent()
 	{
 		return indent(1);
 	}

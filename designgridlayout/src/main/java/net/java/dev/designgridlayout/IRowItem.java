@@ -18,11 +18,11 @@ import java.util.List;
 
 interface IRowItem extends IItem
 {
-	public void hide();
-	public void show();
+	void hide();
+	void show();
 	
-	public void setSpannedRows(List<AbstractRow> rows);
-	public int rowSpan();
-	public boolean isFirstSpanRow();
-	public boolean isLastSpanRow();
+	void setSpannedRows(List<AbstractRow> rows);
+	int rowSpan();
+	boolean isFirstSpanRow();
+	boolean isLastSpanRow();
 }

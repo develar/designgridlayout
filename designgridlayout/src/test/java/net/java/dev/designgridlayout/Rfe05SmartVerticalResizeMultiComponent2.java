@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JSlider;
+import javax.swing.*;
 
 // Shows issue 5 with lack of variable height rows
 public class Rfe05SmartVerticalResizeMultiComponent2 extends AbstractDesignGridExample
@@ -30,7 +30,7 @@ public class Rfe05SmartVerticalResizeMultiComponent2 extends AbstractDesignGridE
 	{
 		layout.row().grid(label("Label1")).add(field("Field1")).empty();
 		layout.row().grid(label("Power"))
-			.addMulti(slider(), field("Field2")).add(field("Field3"));
+			.add(slider(), field("Field2")).add(field("Field3"));
 		layout.row().center().add(button(), button(), button());
 	}
 	

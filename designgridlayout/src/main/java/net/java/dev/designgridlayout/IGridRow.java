@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * Any row created by {@code DesignGridLayout.row().grid()} implements this
@@ -30,7 +30,8 @@ public interface IGridRow extends IRow, ISubGridStarter
 	 * (non-Javadoc)
 	 * @see IRow#add(javax.swing.JComponent[])
 	 */
-	@Override public abstract IGridRow add(JComponent... children);
+	@Override
+	IGridRow add(JComponent... children);
 	
 	/**
 	 * Adds one component to this row and allows it to span several columns of
@@ -47,7 +48,7 @@ public interface IGridRow extends IRow, ISubGridStarter
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IGridRow add(JComponent child, int span);
+	IGridRow add(JComponent child, int span);
 
 	/**
 	 * Adds an empty column to the current row.
@@ -55,7 +56,7 @@ public interface IGridRow extends IRow, ISubGridStarter
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IGridRow empty();
+	IGridRow empty();
 
 	/**
 	 * Adds one or more empty columns to the current row.
@@ -64,40 +65,19 @@ public interface IGridRow extends IRow, ISubGridStarter
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IGridRow empty(int span);
+	IGridRow empty(int span);
 
 	/*
 	 * (non-Javadoc)
-	 * @see IRow#addMulti(javax.swing.JComponent[])
-	 */
-	@Override public abstract IGridRow addMulti(JComponent... children);
-
-	/*
-	 * (non-Javadoc)
-	 * @see net.java.dev.designgridlayout.IRow#indent()
-	 */
-	@Override public abstract IGridRow indent();
+     * @see net.java.dev.designgridlayout.IRow#indent()
+     */
+	@Override
+	IGridRow indent();
 	
 	/*
 	 * (non-Javadoc)
 	 * @see net.java.dev.designgridlayout.IRow#indent(int)
 	 */
-	@Override public abstract IGridRow indent(int n);
-
-	/**
-	 * Adds components to this row; all components are "assembled" as one
-	 * global component and span a given number of columns in the row.
-	 * <p/>
-	 * Note that the width of each individual component will never grow bigger
-	 * than its preferred width.
-	 * 
-	 * @param span the number of columns to span (must be &gt; 0)
-	 * @param children components to assemble and add to this row
-	 * @return {@code this} row (to allow chaining other methods for the current 
-	 * row)
-	 * 
-	 * @deprecated Use {@link #add(JComponent, int)} with {@link Componentizer} instead.
-	 */
-	@Deprecated
-	public abstract IGridRow addMulti(int span, JComponent... children);
+	@Override
+	IGridRow indent(int n);
 }

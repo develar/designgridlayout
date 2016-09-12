@@ -14,7 +14,7 @@
 
 package net.java.dev.designgridlayout;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * Any row created by {@code DesignGridLayout.row().bar()} implements this
@@ -49,7 +49,7 @@ public interface IBarRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IBarRow left(JComponent... children);
+        IBarRow left(JComponent... children);
 	
 	/**
 	 * Adds components to the center of this row. Components are added left to 
@@ -67,7 +67,7 @@ public interface IBarRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IBarRow center(JComponent... children);
+        IBarRow center(JComponent... children);
 	
 	/**
 	 * Adds components to the right of this row. Components are added left to 
@@ -85,7 +85,7 @@ public interface IBarRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IBarRow right(JComponent... children);
+        IBarRow right(JComponent... children);
 	
 	/**
 	 * Adds a tagged component to this row. The component is placed in the row at a
@@ -98,7 +98,7 @@ public interface IBarRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IBarRow add(JComponent child, Tag tag);
+        IBarRow add(JComponent child, Tag tag);
 	
 	/**
 	 * Adds a larger gap (see {@link javax.swing.LayoutStyle.ComponentPlacement#UNRELATED})
@@ -109,7 +109,7 @@ public interface IBarRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IBarRow gap();
+        IBarRow gap();
 	
 	/**
 	 * Makes this row independent of other non-grid rows in terms of component 
@@ -124,5 +124,5 @@ public interface IBarRow extends IHideable
 	 * @return {@code this} row (to allow chaining other methods for the current 
 	 * row)
 	 */
-	public abstract IBarRow withOwnRowWidth();
+        IBarRow withOwnRowWidth();
 }
